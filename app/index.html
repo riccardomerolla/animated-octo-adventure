@@ -16,13 +16,21 @@
     <!-- endbuild -->
 
     <link rel="import"
-  href="bower_components/font-roboto/roboto.html">
-<link rel="import"
-  href="bower_components/core-header-panel/core-header-panel.html">
-<link rel="import"
-  href="bower_components/core-toolbar/core-toolbar.html">
-<link rel="import"
-  href="bower_components/paper-tabs/paper-tabs.html">
+      href="bower_components/font-roboto/roboto.html">
+    <link rel="import"
+      href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import"
+      href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import"
+      href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import"
+      href="bower_components/core-icons/core-icons.html">
+    <link rel="import"
+      href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-up.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/scale-up.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/tile-cascade.html">
   <style>
   html,body {
   height: 100%;
@@ -70,9 +78,16 @@ core-toolbar {
 
     <core-header-panel>
 
-  <core-toolbar>
-    <paper-tabs id="tabs" selected="all" self-end>
-    <paper-tab name="all">All</paper-tab>
+  <core-toolbar class="medium-tall">
+    <paper-icon-button id="navicon"
+    icon="menu"></paper-icon-button>
+
+  <span flex>Polymer Prototype</span>
+
+  <paper-icon-button id="morebutton"
+    icon="more-vert"></paper-icon-button>
+    <paper-tabs class="bottom fit" id="tabs" selected="all" self-end>
+    <paper-tab name="all">Asset</paper-tab>
     <paper-tab name="favorites">Favorites</paper-tab>
   </paper-tabs>
 
@@ -80,11 +95,14 @@ core-toolbar {
 
   <div class="container" layout vertical center>
 
-  <post-list show="all"></post-list>
+    <post-list show="all"></post-list>
 
-</div>
+  </div>
 
 </core-header-panel>
+<core-animated-pages selected="{{selected}}" transitions="cross-fade cross-fade-delayed scale-up slide-up slide-up-offscreen slide-down tile-cascade hero-transition" flex auto on-core-animated-pages-transition-end="{{transitionEndAction}}">
+
+</core-animated-panel>
 
 <script>
   var tabs = document.querySelector('paper-tabs');

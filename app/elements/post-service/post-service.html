@@ -10,7 +10,7 @@
     </style>
     <core-ajax id="ajax"
       auto
-      url="http://localhost:8080/headlands/resources/asset"
+      url="http://localhost:8080/headlands/resources/asset?pageSize=1000"
       on-core-response="{{postsLoaded}}"
       headers='{"Content-Type": "application/json"}'
       handleAs="json">
